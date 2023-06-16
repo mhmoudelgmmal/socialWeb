@@ -1,0 +1,42 @@
+
+
+<div class="container">
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="fix text-center d-flex justify-content-center align-items-center">
+      <div id="loginBox">
+        <h1 class="text-center">Social Website Login</h1>
+        <input id="emailInput" formControlName="email" class="form-control mt-3 bg-transparent" placeholder="Enter your email" type="email">
+        <div class="mt-3" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+          <div class="alert alert-danger" *ngIf="loginForm.get('email')?.errors?.['required']">
+            Email Is required
+          </div>
+          <div class="alert alert-danger" *ngIf="loginForm.get('email')?.errors?.['pattern']">
+            You Must Enter Valid Email
+          </div>
+        </div>
+        <input id="passInput" formControlName="password" minlength="6"  class="form-control mt-3 bg-transparent" placeholder="Enter your password" type="password">
+        <div class="mt-3" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+          <div class="alert alert-danger" *ngIf="loginForm.get('password')?.errors?.['required']">
+            Password Is required
+          </div>
+          <div class="alert alert-danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Password Must Be At Least 6 Charechters
+          </div>
+        </div>
+        <button class="btn w-100 mt-3 mb-3" type="submit">Sign In</button>
+        <div id="alertDanger" class="alert alert-danger d-none" role="alert">
+          Username or password is incorrect
+        </div>
+       <div class="d-flex justify-content-center flex-wrap">
+        <div class="mt-2">
+           <span>Don't have an account?</span>
+        </div>
+        <div class="mt-2">
+           <span class="ms-1"><a routerLink="/landing/register" class="registerLink">Register</a></span>
+        </div>
+       </div>
+      </div>
+  </div>
+  </form>
+</div>
