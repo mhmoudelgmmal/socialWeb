@@ -14,7 +14,7 @@ export class AuthService {
 
       localStorage.setItem("auth","true")
 
-        this._router.navigate(['/panel'])
+        this._router.navigate(['/panel/posts/all'])
 
     })
   }
@@ -32,7 +32,7 @@ export class AuthService {
   signOut(){
     this.fireAuth.signOut().then(()=>{
       localStorage.removeItem("auth")
-      this._router.navigate(['/login'])
+      this._router.navigate(['/landing/login'])
     })
   }
 }
