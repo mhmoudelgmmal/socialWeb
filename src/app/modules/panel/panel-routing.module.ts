@@ -6,7 +6,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllCommentsComponent } from './components/all-comments/all-comments.component';
 import { PostControlComponent } from './components/post-control/post-control.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
-import { SingleCommentComponent } from './components/single-comment/single-comment.component';
 import { AddAndUpdatePostComponent } from './components/add-and-update-post/add-and-update-post.component';
 import { CommentControlComponent } from './components/comment-control/comment-control.component';
 
@@ -18,7 +17,6 @@ const routes: Routes = [
     { path: "comments/all", component:AllCommentsComponent },
     { path: "comments/control/:id", component:CommentControlComponent },
     { path: "single-post/:id", component:SinglePostComponent },
-    { path: "single-comment", component:SingleCommentComponent },
     { path: "add-post", component:AddAndUpdatePostComponent },
     { path: "update-post/:id", component:AddAndUpdatePostComponent },
   ]},

@@ -7,7 +7,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AllCommentsComponent } from './components/all-comments/all-comments.component';
 import { PostControlComponent } from './components/post-control/post-control.component';
 import { CommentControlComponent } from './components/comment-control/comment-control.component';
-import { SingleCommentComponent } from './components/single-comment/single-comment.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { AddAndUpdatePostComponent } from './components/add-and-update-post/add-and-update-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AllCommentsComponent,
     PostControlComponent,
     CommentControlComponent,
-    SingleCommentComponent,
     SinglePostComponent,
     AddAndUpdatePostComponent
   ],
