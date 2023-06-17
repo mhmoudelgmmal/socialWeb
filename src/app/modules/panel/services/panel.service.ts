@@ -37,4 +37,12 @@ export class PanelService {
     let url = `https://jsonplaceholder.typicode.com/posts/${id}`
     return this.http.put<any>(url,body)
   }
+  getAllComments(){
+    let url = `https://jsonplaceholder.typicode.com/comments`
+    return this.http.get<any>(url)
+  }
+  getUserComments(id:string){
+    let url = `https://jsonplaceholder.typicode.com/posts/${id}/comments`
+    return this.http.get<any>(url)
+  }
 }
