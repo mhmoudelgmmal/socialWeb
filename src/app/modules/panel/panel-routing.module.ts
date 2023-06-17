@@ -8,6 +8,7 @@ import { PostControlComponent } from './components/post-control/post-control.com
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { SingleCommentComponent } from './components/single-comment/single-comment.component';
 import { AddAndUpdatePostComponent } from './components/add-and-update-post/add-and-update-post.component';
+import { CommentControlComponent } from './components/comment-control/comment-control.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -15,7 +16,7 @@ const routes: Routes = [
     { path: "posts/all", component:AllPostsComponent },
     { path: "posts/control", component:PostControlComponent },
     { path: "comments/all", component:AllCommentsComponent },
-    { path: "comments/control", component:AllCommentsComponent },
+    { path: "comments/control/:id", component:CommentControlComponent },
     { path: "single-post/:id", component:SinglePostComponent },
     { path: "single-comment", component:SingleCommentComponent },
     { path: "add-post", component:AddAndUpdatePostComponent },

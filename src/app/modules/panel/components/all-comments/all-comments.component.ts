@@ -13,14 +13,17 @@ export class AllCommentsComponent implements OnInit {
     private _router:Router,){}
 
   ngOnInit(): void {
-
+    this.getComments()
+    console.log("comments Works")
   }
   getComments(){
     this.panelServeice.getAllComments().subscribe(
       (res)=>{
         this.allComments = res
-      },(error)=>{
+        console.log(res);
 
+      },(error)=>{
+        alert(error.message)
       }
     )
   }
