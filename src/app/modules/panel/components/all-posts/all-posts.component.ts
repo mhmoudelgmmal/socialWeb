@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-posts.component.css']
 })
 export class AllPostsComponent implements OnInit {
-  allPosts:Array<any> = new Array<any>
+  allPosts:any
   displayStyle = "none";
 
   constructor(private panelServeice:PanelService,
@@ -16,13 +16,19 @@ export class AllPostsComponent implements OnInit {
               ){}
 
   ngOnInit(): void {
-    this.getAllPosts()
+    debugger
+    if (this.panelServeice.allPosts.value == null) {
+      this.getAllPosts()
+    }else{
+      this.allPosts = this.panelServeice.getAllPostsArray()
+    }
   }
 
   getAllPosts(){
     this.panelServeice.getAllPosts().subscribe(
       (res:any)=>{
         this.allPosts = res
+        this.panelServeice.setAllPostsArray(this.allPosts)
         console.log(this.allPosts)
       },(error:any)=>{
 
@@ -36,8 +42,9 @@ export class AllPostsComponent implements OnInit {
         console.log(res)
         this.closePopup()
         debugger
-        let postIndex = this.allPosts.findIndex((post)=>post.id  == id)
+        let postIndex = this.allPosts.findIndex((post:any)=>post.id  == id)
         this.allPosts.splice(postIndex,1)
+        this.panelServeice.setAllPostsArray(this.allPosts)
         console.log(postIndex)
 
       },(error)=>{
