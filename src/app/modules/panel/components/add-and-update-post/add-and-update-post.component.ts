@@ -66,7 +66,7 @@ export class AddAndUpdatePostComponent implements OnInit {
         this.panelService.setAllPostsArray(this.allPosts)
         console.log(this.allPosts)
       },(error:any)=>{
-
+        alert(error.message)
       }
     )
   }
@@ -83,6 +83,7 @@ export class AddAndUpdatePostComponent implements OnInit {
     }
   }
   addPost(){
+    debugger
     let id = this.allPosts.length;
     let body = {
       // I put it static because I don't have user id and the api not implement the changes in the server so i make all the changes in the memory
@@ -94,25 +95,28 @@ export class AddAndUpdatePostComponent implements OnInit {
     this.panelService.addSinglePost(body).subscribe(
       (res)=>{
       this.allPosts.unshift(body)
+      console.log(this.allPosts);
+
       this.panelService.setAllPostsArray(this.allPosts)
       this._router.navigate(['/panel/posts/all'])
       },(error)=>{
-
+        alert(error.message)
       }
     )
   }
   updatePost(){
     // this.getTheUpdatedPost()
     console.log(this.post);
+    if (this.allPosts) {
 
-    // let body
-        this.post.userId = this.post.userId
-        this.post.id = this.post.id
-        this.post.title = this.addAndUpdateForm.controls['title'].value
-        this.post.body = this.addAndUpdateForm.controls['body'].value
-    // body = this.post
+      this.post.userId = this.post.userId
+      this.post.id = this.post.id
+      this.post.title = this.addAndUpdateForm.controls['title'].value
+      this.post.body = this.addAndUpdateForm.controls['body'].value
+      this._router.navigate(['/panel/posts/all'])
 
-    this.panelService.updateSinglePost(this.id,this.post).subscribe(
+    }else{
+       this.panelService.updateSinglePost(this.id,this.post).subscribe(
       (res)=>{
 
         this.panelService.setAllPostsArray(this.allPosts)
@@ -120,8 +124,11 @@ export class AddAndUpdatePostComponent implements OnInit {
         this._router.navigate(['/panel/posts/all'])
       },(error)=>{
         console.log(error);
-
+        alert(error.message)
       }
     )
   }
+    }
+
+
 }

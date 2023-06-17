@@ -30,12 +30,15 @@ role="dialog"
   <div class="row" *ngFor="let post of allPosts">
     <div class="col-md-12">
       <div class="postBox shadow m-3">
-        <div class="d-flex justify-contnet-start">
+        <div class="d-flex justify-contnet-start flex-wrap">
           <div class="m-1">
             <button class="btn btn-primary" [routerLink]="['/panel/single-post/',post.id]">View Post</button>
           </div>
           <div class="m-1">
             <button class="btn btn-danger" (click)="openPopup(post.id)">Delete Post</button>
+          </div>
+          <div class="m-1">
+            <button class="btn btn-secondary"  [routerLink]="['/panel/comments/control/',post.id]">View Comments</button>
           </div>
         </div>
         <h1>{{post.title}}</h1>

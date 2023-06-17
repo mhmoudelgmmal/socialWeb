@@ -25,7 +25,7 @@ export class PostControlComponent implements OnInit {
         this.allPosts = res
         console.log(this.allPosts)
       },(error:any)=>{
-
+        alert(error.message)
       }
     )
   }

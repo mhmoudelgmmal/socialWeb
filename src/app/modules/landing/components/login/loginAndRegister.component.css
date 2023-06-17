@@ -3,6 +3,7 @@ body{
 }
 .fix{
   height: 100vh;
+
 }
 #loginBox{
   width: 75%;
@@ -51,6 +52,26 @@ h1{
   color: white !important;
   border-color: yellow !important;
 
+}
+.registerLink{
+  text-decoration: none;
+  border: 1px solid #17a2b8;
+  padding: 5px 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: #17a2b8;
+}
+.registerLink:hover{
+  color: white;
+  background-color: #17a2b8;
+  transition: .5s ease-in-out;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -ms-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
 }
 .loginLink{
   text-decoration: none;

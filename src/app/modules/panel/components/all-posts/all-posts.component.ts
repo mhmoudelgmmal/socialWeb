@@ -31,7 +31,7 @@ export class AllPostsComponent implements OnInit {
         this.panelServeice.setAllPostsArray(this.allPosts)
         console.log(this.allPosts)
       },(error:any)=>{
-
+        alert(error.message)
       }
     )
   }
@@ -49,6 +49,7 @@ export class AllPostsComponent implements OnInit {
 
       },(error)=>{
         console.log(error)
+        alert(error.message)
       }
     )
   }
