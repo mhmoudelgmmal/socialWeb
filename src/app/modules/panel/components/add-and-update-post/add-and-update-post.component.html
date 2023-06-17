@@ -1,0 +1,32 @@
+<div class="container">
+ <div class="text-center m-3">
+   <h1 class="headingProps">{{isAdd?"Add Post":"Update Post"}}</h1>
+ </div>
+ <div class="postBox"  >
+   <form  [formGroup]="addAndUpdateForm" (ngSubmit)="addOrUpdatePost(addAndUpdateForm)">
+    <div class="alert alert-danger" *ngIf="isValid">
+      You Have To Fill All Inputs
+    </div>
+    <div class="m-2">
+       <input formControlName="title" placeholder="Enter the Title Of Post Here" type="text" class="form-control" name="title" value="">
+
+       <div class="mt-3" *ngIf="addAndUpdateForm.get('title')?.errors && addAndUpdateForm.get('title')?.touched">
+        <div class="alert alert-danger" *ngIf="addAndUpdateForm.get('title')?.errors?.['required']">
+          Title Is required
+        </div>
+      </div>
+    </div>
+    <div class="m-2">
+      <textarea formControlName="body" class="w-100 form-control" placeholder="Enter the Body Of Post Here" name="body" id="body" cols="30" rows="10"></textarea>
+
+      <div class="mt-3" *ngIf="addAndUpdateForm.get('body')?.errors && addAndUpdateForm.get('body')?.touched">
+        <div class="alert alert-danger" *ngIf="addAndUpdateForm.get('body')?.errors?.['required']">
+          Body Is required
+        </div>
+
+      </div>
+    </div>
+    <button type="submit" [ngClass]="isAdd?'btn-success':'btn-primary'" class="btn  mt-4 w-50 mx-auto d-block">{{isAdd?'Add':'Update'}}</button>
+   </form>
+ </div>
+</div>
